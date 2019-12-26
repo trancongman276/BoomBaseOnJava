@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.3" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
   <class id="1" language="java" name="gameStates.MainMenu" project="BoOm" file="/BoOm/src/gameStates/MainMenu.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="153" x="560" y="448"/>    
+    <position height="-1" width="-1" x="677" y="747"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,176 +13,321 @@
   </class>  
   <class id="2" language="java" name="main.DrawGame" project="BoOm" file="/BoOm/src/main/DrawGame.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="322" width="234" x="927" y="684"/>    
+    <position height="-1" width="-1" x="792" y="1291"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="gameStates.Game" project="BoOm" file="/BoOm/src/gameStates/Game.java" 
+  <package id="3" language="java" name="object" project="BoOm" file="/BoOm/src/object" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="55" width="122" x="387" y="147"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="4" language="java" name="gameStates.Game" project="BoOm" file="/BoOm/src/gameStates/Game.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="196" width="153" x="753" y="448"/>    
+    <position height="-1" width="-1" x="944" y="841"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="gfx.Display" project="BoOm" file="/BoOm/src/gfx/Display.java" binary="false" 
+  <class id="5" language="java" name="gfx.Display" project="BoOm" file="/BoOm/src/gfx/Display.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="196" width="140" x="747" y="1046"/>    
+    <position height="-1" width="-1" x="715" y="1707"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="input.MouseManager" project="BoOm" file="/BoOm/src/input/MouseManager.java" 
+  <package id="6" language="java" name="main" project="BoOm" file="/BoOm/src/main" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="55" width="122" x="549" y="147"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="7" language="java" name="input.MouseManager" project="BoOm" file="/BoOm/src/input/MouseManager.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="286" width="224" x="1140" y="1046"/>    
+    <position height="-1" width="-1" x="1290" y="1735"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="gfx.ImageLoader" project="BoOm" file="/BoOm/src/gfx/Asset.java" binary="false" 
+  <class id="8" language="java" name="gfx.ImageLoader" project="BoOm" file="/BoOm/src/gfx/Asset.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="106" width="217" x="927" y="1372"/>    
+    <position height="106" width="217" x="1017" y="2117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="gameStates.State" project="BoOm" file="/BoOm/src/gameStates/State.java" 
+  <class id="9" language="java" name="input.KeyBoardManager" project="BoOm" file="/BoOm/src/input/KeyBoardManager.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="159" width="154" x="791" y="239"/>    
+    <position height="-1" width="-1" x="1541" y="1480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="main.Laucher" project="BoOm" file="/BoOm/src/main/Laucher.java" binary="false" 
+  <class id="10" language="java" name="gameStates.State" project="BoOm" file="/BoOm/src/gameStates/State.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="159" width="154" x="1312" y="147"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="main.Laucher" project="BoOm" file="/BoOm/src/main/Laucher.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="106" width="130" x="967" y="448"/>    
+    <position height="-1" width="-1" x="463" y="1155"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="object.Player" project="BoOm" file="/BoOm/src/object/Player.java" binary="false" 
+  <package id="12" language="java" name="input" project="BoOm" file="/BoOm/src/input" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="88" width="104" x="1157" y="239"/>    
+    <position height="55" width="122" x="711" y="147"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <enumeration id="13" language="java" name="object.Control1" project="BoOm" file="/BoOm/src/object/Control1.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="147" x="1705" y="2117"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="10" language="java" name="gfx.Asset" project="BoOm" file="/BoOm/src/gfx/Asset.java" binary="false" 
+  </enumeration>  
+  <class id="14" language="java" name="object.Player" project="BoOm" file="/BoOm/src/object/Player.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="286" width="173" x="927" y="1046"/>    
+    <position height="556" width="293" x="1559" y="147"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="gfx.Resize" project="BoOm" file="/BoOm/src/gfx/Resize.java" binary="false" 
+  <package id="15" language="java" name="gfx" project="BoOm" file="/BoOm/src/gfx" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="55" width="122" x="873" y="147"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="16" language="java" name="gfx.Asset" project="BoOm" file="/BoOm/src/gfx/Asset.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="142" width="237" x="1463" y="239"/>    
+    <position height="-1" width="-1" x="987" y="1842"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="object.Boom" project="BoOm" file="/BoOm/src/object/Boom.java" binary="false" 
+  <class id="17" language="java" name="gfx.Resize" project="BoOm" file="/BoOm/src/gfx/Resize.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="88" width="104" x="1740" y="239"/>    
+    <position height="142" width="237" x="1035" y="147"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="13">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="14" name="asset"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="17" name="state"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="18" language="java" name="object.Boom" project="BoOm" file="/BoOm/src/object/Boom.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1543" y="1133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <association id="19">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="20" name="display"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="20" name="img">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="22">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="23" name="drawgame"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="23" name="game">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="25">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="26" name="mousemanager"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="26" name="CurrentState">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="28">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="29" name="CurrentState"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="29" name="mousemanager">        
+        <position height="0" width="0" x="-52" y="-19"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-52" y="-19"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="32">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="33" name="img"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="36">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="37" name="game"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+  <association id="31">    
+    <bendpoint x="1568" y="743"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="32" name="drawgame">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <association id="34">    
+    <bendpoint x="1321" y="743"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="35" name="state">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="38" name="asset">        
+        <position height="0" width="0" x="-116" y="-2"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-116" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <bendpoint x="1714" y="743"/>    
+    <bendpoint x="1714" y="1231"/>    
+    <bendpoint x="1714" y="1611"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="41" name="move">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="44">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="45" name="drawgame">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="48" name="keymanager">        
+        <position height="0" width="0" x="-48" y="-220"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-48" y="-220"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="51" name="lsBom">        
+        <position height="0" width="0" x="98" y="166"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="98" y="166"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="54" name="move">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="57" name="display">        
+        <position height="0" width="0" x="-192" y="-2"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-192" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="60">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="61" name="drawgame">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-638" y="-110"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  

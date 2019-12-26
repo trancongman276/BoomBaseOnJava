@@ -2,15 +2,12 @@ package main;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import gameStates.Game;
 import gameStates.State;
 import gfx.Asset;
 import gfx.Display;
+import input.KeyBoardManager;
 import input.MouseManager;
 
 public class DrawGame implements Runnable{
@@ -25,6 +22,7 @@ public class DrawGame implements Runnable{
 	
 	private boolean running;
 	private MouseManager mousemanager;
+	private KeyBoardManager keymanager;	
 //	private MainMenu menu;
 
 	public DrawGame(String Title) {
@@ -32,6 +30,7 @@ public class DrawGame implements Runnable{
 		asset = new Asset();
 		state = new Game(this);
 		mousemanager = new MouseManager();
+		keymanager = new KeyBoardManager();
 	}
 	
 	private void init() {
@@ -43,6 +42,9 @@ public class DrawGame implements Runnable{
 		display.getCanvas().addMouseListener(mousemanager);
 		display.getFrame().addMouseMotionListener(mousemanager);
 		display.getCanvas().addMouseMotionListener(mousemanager);
+		
+		display.getFrame().addKeyListener(keymanager);
+		display.getCanvas().addKeyListener(keymanager);
 		
 		state.setState(state);
 		
@@ -133,6 +135,10 @@ public class DrawGame implements Runnable{
 
 	public MouseManager getMousemanager() {
 		return mousemanager;
+	}
+
+	public KeyBoardManager getKeymanager() {
+		return keymanager;
 	}
 	
 }

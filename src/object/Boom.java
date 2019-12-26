@@ -7,8 +7,9 @@ import main.DrawGame;
 public class Boom {
 	
 	private final int timeKaboom = 180, timeShowWater = 60 + 180;
-	private int x,y, bomLenght, currentTime=0;
+	private int x,y, bomLenght, currentTime=0,U,D,L,R;
 	private DrawGame drawgame;
+	private boolean active;
 	
 	public Boom(int _x, int _y, int _bomLenght, DrawGame _drawgame) {
 		x=_x;
@@ -26,10 +27,94 @@ public class Boom {
 			g.drawImage(drawgame.getAsset().getBoom(),x,y,null);
 		} else if(currentTime<=timeShowWater) {
 			g.drawImage(drawgame.getAsset().getWater(),x,y,null);
+			for(int i=0; i<U;i++)
+				g.drawImage(drawgame.getAsset().getWater(),
+						x-drawgame.getAsset().getTitleW()*i,y,null);
+			
+			for(int i=0; i<D;i++)
+				g.drawImage(drawgame.getAsset().getWater(),
+						x+drawgame.getAsset().getTitleW()*i,y,null);
+			
+			for(int i=0; i<L;i++)
+				g.drawImage(drawgame.getAsset().getWater(),
+						x,y-drawgame.getAsset().getTitleW()*i,null);
+			
+			for(int i=0; i<R;i++)
+				g.drawImage(drawgame.getAsset().getWater(),
+						x,y+drawgame.getAsset().getTitleW()*i,null);
 		}
 	}
-	
-	private void checkCollide() {
-		
+
+	public int getU() {
+		return U;
 	}
+
+	public void setU(int u) {
+		U = u;
+	}
+
+	public int getD() {
+		return D;
+	}
+
+	public void setD(int d) {
+		D = d;
+	}
+
+	public int getL() {
+		return L;
+	}
+
+	public void setL(int l) {
+		L = l;
+	}
+
+	public int getR() {
+		return R;
+	}
+
+	public void setR(int r) {
+		R = r;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getBomLenght() {
+		return bomLenght;
+	}
+
+	public void setBomLenght(int bomLenght) {
+		this.bomLenght = bomLenght;
+	}
+
+	public int getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentTime(int currentTime) {
+		this.currentTime = currentTime;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
 }
