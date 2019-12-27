@@ -8,7 +8,13 @@ import object.Control1;
 public class KeyBoardManager implements KeyListener {
 	
 	private Control1 move;
+	private boolean isD,isS,isA,isW, placeBom;
 	
+	
+	public boolean isPlaceBom() {
+		return placeBom;
+	}
+
 	public Control1 getMove() {
 		return move;
 	}
@@ -23,27 +29,43 @@ public class KeyBoardManager implements KeyListener {
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_D) {
 			move = Control1.R;
-		}else
+			isD =true;
+		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_W) {
 			move = Control1.U;
-		}else
+			isW = true;
+		}
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_A) {
 			move = Control1.L;
-		}else
+			isA = true;
+		}
 
 		if(arg0.getKeyCode() == KeyEvent.VK_S) {
 			move = Control1.D;
-		}else
-			move = null;
+			isS = true;
+		}
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-			
+		if(arg0.getKeyCode() == KeyEvent.VK_D) 
+			isD = false;
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_S) 
+			isS = false;
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_A) 
+			isA = false;
+		
+		if(arg0.getKeyCode() == KeyEvent.VK_W) 
+			isW = false;
+		
+		if(!isA && !isS && !isD && !isW)
+			move = null;
 	}
 
 	@Override
@@ -51,8 +73,8 @@ public class KeyBoardManager implements KeyListener {
 		// TODO Auto-generated method stub
 		
 		if(arg0.getKeyCode() == KeyEvent.VK_SPACE) {
-			move = Control1.placeBoom;
-		}
+			placeBom = true;
+		} else placeBom = false;
 	}
 
 }
