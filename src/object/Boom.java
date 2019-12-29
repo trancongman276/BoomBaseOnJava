@@ -9,7 +9,7 @@ public class Boom {
 	private final int timeKaboom = 180, timeShowWater = 60 + 180;
 	private int x,y, bomLenght, currentTime=0,U,D,L,R;
 	private DrawGame drawgame;
-	private boolean active;
+	private boolean active=false, exploding = false, checkedCollide=false;
 	
 	public Boom(int _x, int _y, int _bomLenght, DrawGame _drawgame) {
 		x=_x;
@@ -26,23 +26,51 @@ public class Boom {
 		if(currentTime<=timeKaboom) {
 			g.drawImage(drawgame.getAsset().getBoom(),x,y,null);
 		} else if(currentTime<=timeShowWater) {
+			exploding = true;
 			g.drawImage(drawgame.getAsset().getWater(),x,y,null);
-			for(int i=0; i<U;i++)
+			for(int i=0; i<=U;i++)
 				g.drawImage(drawgame.getAsset().getWater(),
 						x-drawgame.getAsset().getTitleW()*i,y,null);
 			
-			for(int i=0; i<D;i++)
+			for(int i=0; i<=D;i++)
 				g.drawImage(drawgame.getAsset().getWater(),
 						x+drawgame.getAsset().getTitleW()*i,y,null);
 			
-			for(int i=0; i<L;i++)
+			for(int i=0; i<=L;i++)
 				g.drawImage(drawgame.getAsset().getWater(),
 						x,y-drawgame.getAsset().getTitleW()*i,null);
 			
-			for(int i=0; i<R;i++)
+			for(int i=0; i<=R;i++)
 				g.drawImage(drawgame.getAsset().getWater(),
 						x,y+drawgame.getAsset().getTitleW()*i,null);
 		}
+		else {
+			active = false;
+			exploding = false;
+			checkedCollide = false;
+			currentTime = 0;
+			U=0;
+			D=0;
+			L=0;
+			R=0;
+		}
+		
+	}
+
+	public boolean isCheckedCollide() {
+		return checkedCollide;
+	}
+
+	public void setCheckedCollide(boolean checkCollide) {
+		this.checkedCollide = checkCollide;
+	}
+
+	public boolean isExploding() {
+		return exploding;
+	}
+
+	public void setExploding(boolean exploding) {
+		this.exploding = exploding;
 	}
 
 	public int getU() {

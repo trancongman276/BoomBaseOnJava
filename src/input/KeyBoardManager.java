@@ -15,6 +15,10 @@ public class KeyBoardManager implements KeyListener {
 		return placeBom;
 	}
 
+	public void setPlaceBom(boolean placeBom) {
+		this.placeBom = placeBom;
+	}
+
 	public Control1 getMove() {
 		return move;
 	}
@@ -47,6 +51,9 @@ public class KeyBoardManager implements KeyListener {
 			isS = true;
 		}
 		
+		if(arg0.getKeyCode() == KeyEvent.VK_SPACE) {
+			placeBom = true;
+		} 
 	}
 
 	@Override
@@ -72,9 +79,7 @@ public class KeyBoardManager implements KeyListener {
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		if(arg0.getKeyCode() == KeyEvent.VK_SPACE) {
-			placeBom = true;
-		} else placeBom = false;
+		
 	}
 
 }

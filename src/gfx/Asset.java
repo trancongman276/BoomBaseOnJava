@@ -7,21 +7,26 @@ import javax.imageio.ImageIO;
 
 public class Asset {
 	ImageLoader img;
-	private BufferedImage boom, bush, wall, grass, box, water, p1, p2;
+	private BufferedImage boom, bush, wall, grass, box, floor, water, p1, p2;
 	private int titleW,titleH;
 	public void init() {
 		img = new ImageLoader();
-		boom = img.LoadImage("/objects/boom.png");
+		boom = img.LoadImage("/objects/boom2.png");
 		bush = img.LoadImage("/objects/floor0.png");
 		wall = img.LoadImage("/objects/floor0.png");
 		grass = img.LoadImage("/objects/floor0.png");
+		floor = img.LoadImage("/objects/floor1.png");
 		box = img.LoadImage("/objects/box.png");
-		water = img.LoadImage("/objects/floor0.png");
+		water = img.LoadImage("/objects/water.png");
 		p1 = img.LoadImage("/objects/player.png");
 		p2 = img.LoadImage("/objects/player.png");
 		
 		titleW = grass.getWidth();
 		titleH = grass.getHeight();
+	}
+
+	public BufferedImage getFloor() {
+		return floor;
 	}
 
 	public int getTitleW() {
