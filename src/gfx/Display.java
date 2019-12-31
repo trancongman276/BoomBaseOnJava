@@ -28,8 +28,8 @@ public class Display {
 		
 		canvas = new Canvas();
 		canvas.setPreferredSize(jframe.getSize());
-		canvas.setMaximumSize(new Dimension((int) (1920*Resize.x),(int)(1080*Resize.y)));
-		canvas.setMinimumSize(new Dimension((int) (1920*Resize.x),(int)(1080*Resize.y)));
+		canvas.setMaximumSize(new Dimension(1920,1080));
+		canvas.setMinimumSize(new Dimension(1920,1080));
 		
 		jframe.add(canvas);
 		jframe.pack();

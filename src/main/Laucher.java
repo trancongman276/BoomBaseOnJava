@@ -1,5 +1,6 @@
 package main;
 
+
 public class Laucher {
 	static DrawGame game;
 	

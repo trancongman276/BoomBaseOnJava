@@ -47,7 +47,6 @@ public class DrawGame implements Runnable{
 		display.getCanvas().addKeyListener(keymanager);
 		
 		State.setState(menu);
-		System.out.println("passed");
 //		System.out.println(Toolkit.getDefaultToolkit().getScreenResolution());
 	}
 

@@ -15,8 +15,12 @@ import object.Control1;
 import object.Player;
 
 public class Game extends State{
+	private final int  timeCollide =30, timeOut=180;
+//			ScreenX = 100,ScreenY = 100;
 	//player 1
-	private final int speed = 5, bomnb = 100, timeDie = 120, bomLenght = 3, timeCollide =30, timeOut=180;
+	private final int speed = 5, bomnb = 100, timeDie = 120, bomLenght = 3,x=100,y=100;
+	//player 2
+	private final int speed2 = 5, bomnb2 = 100, timeDie2 = 120, bomLenght2 = 3,x2=500,y2=500;
 	
 	private int map[][], width, height;
 	private DrawGame drawgame;
@@ -29,8 +33,8 @@ public class Game extends State{
 		initWorld("map.txt");
 		this.drawgame = drawgame;
 		bomls = new ArrayList<>();
-		p1 = new Player(100,100,speed, bomnb, timeDie, bomLenght, drawgame,1);
-		p2 = new Player(500,500,speed, bomnb, timeDie, bomLenght, drawgame,2);
+		p1 = new Player(x,y,speed, bomnb, timeDie, bomLenght, drawgame,1);
+		p2 = new Player(x2,y2,speed2, bomnb2, timeDie2, bomLenght2, drawgame,2);
 	}
 	
 	private void checkBoom() {
@@ -122,21 +126,21 @@ public class Game extends State{
 						-(int)(p.getBound().y/drawgame.getAsset().getTitleH());
 				
 				if(distanceX>0) {//down
-					if(distanceX<=bom.getD() && distanceY==0)
+					if(distanceX<bom.getL() && distanceY==0) {
 						p.setDie(true);gameOver=true;
-					return;
+					return;}
 				}else
-					if(-distanceX<=bom.getU()&& distanceY==0) {
+					if(-distanceX<bom.getR()&& distanceY==0) {
 						p.setDie(true);gameOver=true;
 						return;
 					}
 				
-				if(distanceY>0) {//down
-					if(distanceY<=bom.getL()&& distanceX==0)
+				if(distanceY>0) {
+					if(distanceY<=bom.getU()&& distanceX==0) {
 						p.setDie(true);gameOver=true;
-					return;
+					return;}
 				}else
-					if(-distanceY<=bom.getR()&& distanceX==0) {
+					if(-distanceY<=bom.getD()&& distanceX==0) {
 						p.setDie(true);gameOver=true;
 						return;
 					}
@@ -531,12 +535,6 @@ public class Game extends State{
 				map[i][j] = Integer.parseInt(mat[i*width+j+2]);
 			}
 		}
-		System.out.println(width + "  "+ height);
-		for(int i=0; i<height;i++) {
-			for(int j=0; j<width;j++) {
-				System.out.print(map[i][j]+" ");
-			}
-			System.out.println();
-		}
+
 	}
 }
