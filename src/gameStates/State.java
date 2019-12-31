@@ -2,17 +2,17 @@ package gameStates;
 import java.awt.Graphics;
 
 public abstract class State {
-	private State CurrentState = null;
+	private static State CurrentState = null;
 	
 	public State() {
 		
 	}
 	
-	public void setState(State St) {
+	public static void setState(State St) {
 		CurrentState = St;
 	}
 
-	public State getState() {
+	public static State getState() {
 		return CurrentState;
 	}
 	

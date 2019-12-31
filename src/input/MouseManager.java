@@ -7,7 +7,13 @@ import java.awt.event.MouseMotionListener;
 public class MouseManager implements MouseListener,MouseMotionListener{
 
 	private int x,y;
+	private boolean clicked = false;
 	
+	
+	public boolean isClicked() {
+		return clicked;
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -32,18 +38,21 @@ public class MouseManager implements MouseListener,MouseMotionListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		clicked = true;
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
+		clicked = false;
 	}
+	
 
 	@Override
 	public void mouseEntered(MouseEvent e) {

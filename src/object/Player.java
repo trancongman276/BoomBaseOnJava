@@ -2,28 +2,33 @@ package object;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
 import main.DrawGame;
 
 public class Player {
-	private int speed, bomnb, timeDie, bomLenght, x=100, y=100;
+	private int speed, bomnb, timeDie, bomLenght, x=100, y=100,k=0,t,type, timePush=0;
 	private List<Boom> lsBom;
 	private DrawGame drawgame;
-	private Control1 move;
-	private boolean collideU,collideD,collideL,collideR;
+	private Control1 move,move2;
+	private boolean collideU,collideD,collideL,collideR, once=false,die=false,placeBom;
 	private Rectangle bound;
+	private BufferedImage[][] player;
 	
-	public Player(int _speed, int _bomnb, int _timeDie, int _bomLenght, DrawGame _drawgame) {
+	public Player(int _x, int _y,int _speed, int _bomnb, int _timeDie, int _bomLenght, DrawGame _drawgame, int t) {
+		x=_x;
+		y=_y;
 		speed = _speed;
 		bomnb = _bomnb;
 		timeDie = _timeDie;
 		bomLenght = _bomLenght;
 		drawgame = _drawgame;
-		bound = new Rectangle();
-		
+		type = t;
+		bound = new Rectangle(x+36,y+69,51,51);
 		lsBom = new ArrayList<>();
+		 
 		init();
 	}
 	
@@ -32,68 +37,161 @@ public class Player {
 			lsBom.add(new Boom(0, 0, bomLenght, drawgame));
 		}
 	}
-	private void checkBoom(Boom bom) {
-		for(Boom bom1 : lsBom) {
-			if(bom1.isActive())
-			if(Math.abs(bom.getX()-bom1.getX())/drawgame.getAsset().getTitleW()<bom.getBomLenght()
-			&& bom.getY()==bom1.getY())
-				bom.setCurrentTime(bom1.getCurrentTime());
-			else 
-				if(Math.abs(bom.getY()-bom1.getY())/drawgame.getAsset().getTitleH()<bom.getBomLenght()
-						&& bom.getX()==bom1.getX())
-					bom.setCurrentTime(bom1.getCurrentTime());
-		}
-		
-	}
+	
 	public void update() {
-			move = drawgame.getKeymanager().getMove();
-			if(move != null) {
-				switch(move) {
-				case U:
-					y-=speed;
-					break;
-				case D:
-					y+=speed;
-					break;
-				case L:
-					x-=speed;
-					break;
-				case R:
-					x+=speed;
-					break;
+		if(!die) {
+			bound.setBounds(x+36,y+69,51,51);                                                                                                                                                                                                                      
+			if(type == 1)
+				move = drawgame.getKeymanager().getMove();
+			else move = drawgame.getKeymanager().getMove2();
+				if(move != null) {
+					switch(move) {
+					case U:
+						if(!collideU)
+						y-=speed;
+						break;
+					case D:
+						if(!collideD)
+						y+=speed;
+						break;
+					case L:
+						if(!collideL)
+						x-=speed;
+						break;
+					case R:
+						if(!collideR)
+						x+=speed;
+						break;
+					default:
+						break;
+					}
+				}	
+				bound.setBounds(x+36,y+69,51,51);
+				if(type == 1)
+					placeBom = drawgame.getKeymanager().isPlaceBom();
+				else placeBom = drawgame.getKeymanager().isPlaceBom2();
+			if(placeBom) {
+				for(Boom bom : lsBom) {
+					if(bom.getX() == ((int)(x / drawgame.getAsset().getTitleW())*drawgame.getAsset().getTitleW()) &&
+							bom.getY() == ((int)(y / drawgame.getAsset().getTitleH())*drawgame.getAsset().getTitleH()))
+						break;
+					if(!bom.isActive()) {
+						bom.setActive(true);
+						bom.setX((int)(bound.x / drawgame.getAsset().getTitleW())*drawgame.getAsset().getTitleW());
+						bom.setY((int)(bound.y / drawgame.getAsset().getTitleH())*drawgame.getAsset().getTitleH());
+//						checkBoom(bom);
+						if(type == 1)
+							drawgame.getKeymanager().setPlaceBom(false);
+						else drawgame.getKeymanager().setPlaceBom2(false);
+						
+						once = false;
+						break;
+					}
 				}
-			}	
-		if(drawgame.getKeymanager().isPlaceBom()) {
-			for(Boom bom : lsBom) {
-				if(bom.getX() == ((int)(x / drawgame.getAsset().getTitleW())*drawgame.getAsset().getTitleW()) &&
-						bom.getY() == ((int)(y / drawgame.getAsset().getTitleH())*drawgame.getAsset().getTitleH()))
-					break;
-				if(!bom.isActive()) {
-					bom.setActive(true);
-					bom.setX((int)(x / drawgame.getAsset().getTitleW())*drawgame.getAsset().getTitleW());
-					bom.setY((int)(y / drawgame.getAsset().getTitleH())*drawgame.getAsset().getTitleH());
-					checkBoom(bom);
+				if(type == 1)
 					drawgame.getKeymanager().setPlaceBom(false);
-					break;
+				else drawgame.getKeymanager().setPlaceBom2(false);
+			}
+		}
+			for(Boom bom : lsBom) {
+				if(bom.isActive()) {
+					bom.update();
 				}
 			}
-			drawgame.getKeymanager().setPlaceBom(false);
-		}
-		
-		for(Boom bom : lsBom) {
-			if(bom.isActive()) {
-				bom.update();
-			}
-		}
 	}
 	
 	public void render(Graphics g) {
-		g.drawImage(drawgame.getAsset().getP1(),x,y,null);
+		if(!die) {
+			if(type == 1)
+				player = drawgame.getAsset().getPlayer1();
+			else player = drawgame.getAsset().getPlayer2();
+		g.drawImage(drawgame.getAsset().getShadows(),x+27,y+105,null);
+		if(move!=null) {
+			if(move==Control1.L) {
+				g.drawImage(player[1][k],x,y,null);
+				if(t==5) {
+					if(k==0) k=2; else k=0;
+					t=0;
+				}else t++;
+			}else
+			
+				if(move==Control1.R) {
+					g.drawImage(player[2][k],x,y,null);
+					if(t==5) {
+						if(k==0) k=2; else k=0;
+						t=0;
+					}else t++;
+				}else
+					if(move==Control1.U) {
+						g.drawImage(player[3][k],x,y,null);
+						if(t==5) {
+							if(k==0) k=2; else k=0;
+							t=0;
+						}else t++;
+					}else
+						if(move==Control1.D) {
+							g.drawImage(player[0][k],x,y,null);
+							if(t==5) {
+								if(k==0) k=2; else k=0;
+								t=0;
+							}else t++;
+						}
+			move2=move;
+		}else {
+			if(move2==Control1.L) {
+				g.drawImage(player[1][1],x,y,null);
+			}else
+			
+				if(move2==Control1.R) {
+					g.drawImage(player[2][1],x,y,null);
+				}else
+					if(move2==Control1.U) {
+						g.drawImage(player[3][1],x,y,null);
+					}else
+						if(move2==Control1.D | move2==null) {
+							g.drawImage(player[0][1],x,y,null);
+						}
+		}
+		}else {
+			if(timeDie!=0) {
+				g.drawImage(drawgame.getAsset().getDead(),x,y,null);
+				timeDie--;
+			}
+		}
+		//DrawBom
 		for(Boom bom : lsBom) {
 			if(bom.isActive()) {
 				bom.render(g);
 			}
 		}
+	}
+
+	public int getTimePush() {
+		return timePush;
+	}
+
+	public void setTimePush(int timePush) {
+		this.timePush = timePush;
+	}
+
+	public void setDie(boolean die) {
+		this.die = die;
+	}
+
+	public void setOnce(boolean once) {
+		this.once = once;
+	}
+
+	public boolean isOnce() {
+		return once;
+	}
+
+	public Control1 getMove2() {
+		return move2;
+	}
+
+	public Rectangle getBound() {
+		return bound;
 	}
 
 	public List<Boom> getLsBom() {
@@ -182,7 +280,9 @@ public class Player {
 	}
 
 	public Control1 getMove() {
-		return move;
+		if(type==1)
+		return drawgame.getKeymanager().getMove();
+		else return drawgame.getKeymanager().getMove2();
 	}
 	
 

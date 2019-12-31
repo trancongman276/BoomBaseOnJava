@@ -3,7 +3,7 @@ package main;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-import gameStates.Game;
+import gameStates.MainMenu;
 import gameStates.State;
 import gfx.Asset;
 import gfx.Display;
@@ -18,26 +18,26 @@ public class DrawGame implements Runnable{
 	private BufferStrategy bs;
 	private Graphics g;
 	private Asset asset;
-	private State state;
 	
 	private boolean running;
 	private MouseManager mousemanager;
 	private KeyBoardManager keymanager;	
-//	private MainMenu menu;
+	private MainMenu menu;
 
 	public DrawGame(String Title) {
 		this.Title = Title;
 		asset = new Asset();
-		state = new Game(this);
+		
 		mousemanager = new MouseManager();
 		keymanager = new KeyBoardManager();
+		init();
 	}
 	
 	private void init() {
 		asset.init();
 		display = new Display(Title);
 //		menu = new MainMenu();
-		
+		menu = new MainMenu(this);
 		display.getFrame().addMouseListener(mousemanager);
 		display.getCanvas().addMouseListener(mousemanager);
 		display.getFrame().addMouseMotionListener(mousemanager);
@@ -46,14 +46,14 @@ public class DrawGame implements Runnable{
 		display.getFrame().addKeyListener(keymanager);
 		display.getCanvas().addKeyListener(keymanager);
 		
-		state.setState(state);
-		
+		State.setState(menu);
+		System.out.println("passed");
 //		System.out.println(Toolkit.getDefaultToolkit().getScreenResolution());
 	}
 
 	public void update() {
-		if(state.getState()!=null) {
-			state.getState().Update();
+		if(State.getState()!=null) {
+			State.getState().Update();
 		}
 //		System.out.println(mousemanager.getX()+ " " + mousemanager.getY());
 	}
@@ -67,8 +67,8 @@ public class DrawGame implements Runnable{
 		g = bs.getDrawGraphics();
 		g.clearRect(0, 0, display.getFrame().getWidth(),  display.getFrame().getHeight());
 		
-		if(state.getState()!=null) {
-			state.getState().Render(g);
+		if(State.getState()!=null) {
+			State.getState().Render(g);
 		}
 		
 		
@@ -79,7 +79,6 @@ public class DrawGame implements Runnable{
 	@SuppressWarnings("unused")
 	@Override
 	public void run() {
-		init();
 		int fps = 60;
 		double time_per_tick = 1000000000/fps;
 		double delta = 0;
@@ -128,6 +127,7 @@ public class DrawGame implements Runnable{
 			e.printStackTrace();
 		}
 	}
+
 
 	public Asset getAsset() {
 		return asset;
