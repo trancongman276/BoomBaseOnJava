@@ -211,6 +211,15 @@ public class Player {
 	}
 
 	public void setBomnb(int bomnb) {
+		if(bomnb<this.bomnb) {
+			for(int i=0;i<this.bomnb-bomnb;i++) {
+				lsBom.remove(lsBom.size()-1);
+			}
+		}
+			else
+				for(int i=0;i<bomnb-this.bomnb;i++) {
+					lsBom.add(new Boom(0,0,bomLenght,drawgame));
+		}
 		this.bomnb = bomnb;
 	}
 
@@ -227,6 +236,9 @@ public class Player {
 	}
 
 	public void setBomLenght(int bomLenght) {
+		for(Boom bom: lsBom) {
+			bom.setBomLenght(bomLenght);
+		}
 		this.bomLenght = bomLenght;
 	}
 

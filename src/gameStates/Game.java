@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import main.DrawGame;
 import object.Boom;
@@ -16,11 +17,10 @@ import object.Player;
 
 public class Game extends State{
 	private final int  timeCollide =30, timeOut=180;
-//			ScreenX = 100,ScreenY = 100;
 	//player 1
-	private final int speed = 5, bomnb = 100, timeDie = 120, bomLenght = 3,x=100,y=100;
+	private final int speed = 5, bomnb = 3, timeDie = 120, bomLenght = 3,x=100,y=100;
 	//player 2
-	private final int speed2 = 5, bomnb2 = 100, timeDie2 = 120, bomLenght2 = 3,x2=500,y2=500;
+	private final int speed2 = 5, bomnb2 = 3, timeDie2 = 120, bomLenght2 = 3,x2=500,y2=500;
 	
 	private int map[][], width, height;
 	private DrawGame drawgame;
@@ -28,9 +28,11 @@ public class Game extends State{
 	private List<Boom> bomls;
 	private Boolean gameOver=false;
 	private int timeout=0;
+	private Random rnd;
 	
 	public Game(DrawGame drawgame) {
 		initWorld("map.txt");
+		rnd = new Random();
 		this.drawgame = drawgame;
 		bomls = new ArrayList<>();
 		p1 = new Player(x,y,speed, bomnb, timeDie, bomLenght, drawgame,1);
@@ -65,12 +67,16 @@ public class Game extends State{
 				if(x-i>=0) {
 					if(x-i==0) break;
 				if(map[x-i][y]==2 | map[x-1][y]==1) {
-					map[x-i][y]=0;
+					map[x-i][y]=rnd.nextInt(drawgame.getAsset().getNumberOfItems())+4;
 					break;
 				}else
 					if(map[x-i][y]==3) {
 						break;
 					}else
+						if(map[x-i][y]>3) {
+							map[x-i][y]=0;
+							bom.setU(bom.getU()+1);
+						}else
 						bom.setU(bom.getU()+1);
 			}
 				}
@@ -79,12 +85,16 @@ public class Game extends State{
 				if(x+i==height-1) break;
 				if(x+i<height) {
 				if(map[x+i][y]==2 |map[x+i][y]==1) {
-					map[x+i][y]=0;
+					map[x+i][y]=rnd.nextInt(drawgame.getAsset().getNumberOfItems())+4;;
 					break;
 				}else
 					if(map[x+i][y]==3) {
 						break;
 					}else
+						if(map[x+i][y]>3) {
+							map[x+i][y]=0;
+							bom.setU(bom.getD()+1);
+						}else
 						bom.setD(bom.getD()+1);
 			}
 			}
@@ -93,12 +103,16 @@ public class Game extends State{
 				if(y-1==0) break;
 				if(y-i>=0) {
 				if(map[x][y-i]==2 | map[x][y-i]==1) {
-					map[x][y-i]=0;
+					map[x][y-i]=rnd.nextInt(drawgame.getAsset().getNumberOfItems())+4;;
 					break;
 				}else
 					if(map[x][y-i]==3) {
 						break;
 					}else
+						if(map[x][y-i]>3) {
+							map[x][y-i]=0;
+							bom.setU(bom.getL()+1);
+						}else
 						bom.setL(bom.getL()+1);
 			}}
 			
@@ -106,12 +120,16 @@ public class Game extends State{
 				if(y+1==width-1) break;
 				if(y+i<width) {
 				if(map[x][y+i]==2 | map[x][y+i]==1) {
-					map[x][y+i]=0;
+					map[x][y+i]=rnd.nextInt(drawgame.getAsset().getNumberOfItems())+4;;
 					break;
 				}else
 					if(map[x][y+i]==3) {
 						break;
 					}else
+						if(map[x][y+i]>3) {
+							map[x][y+i]=0;
+							bom.setU(bom.getR()+1);
+						}else
 						bom.setR(bom.getR()+1);
 			}}
 		}
@@ -158,12 +176,28 @@ public class Game extends State{
 	private void checkCollide(Player p1) {
 		int x=getTitleX(p1.getBound().y),
 			x2=getTitleX(p1.getBound().y+p1.getBound().height),
-		y=getTitleY(p1.getBound().x),
-		y2 = getTitleY(p1.getBound().x+p1.getBound().width),
+			y=getTitleY(p1.getBound().x),
+			y2 = getTitleY(p1.getBound().x+p1.getBound().width),
+			xC = getTitleX((int)(p1.getBound().getCenterY())),
+			yC = getTitleY((int)(p1.getBound().getCenterX())),
 				yR = getTitleY(p1.getBound().x+p1.getBound().width+5),
 				yL = getTitleY(p1.getBound().x-5),
 				xU = getTitleX(p1.getBound().y-5),
 				xD = getTitleX(p1.getBound().y+p1.getBound().height+5);
+		if(map[xC][yC]>3) {
+			switch(map[xC][yC]) {
+			case 4:
+				p1.setBomnb(p1.getBomnb()+1);
+				break;
+			case 5:
+				p1.setSpeed(p1.getSpeed()+1);
+				break;
+			case 6:
+				p1.setBomLenght(p1.getBomLenght()+1);
+				break;
+			}
+			map[xC][yC]=0;
+		}
 		if(p1.getMove()==null) p1.setTimePush(0);
 		if(x2<height) {
 			if(x2==height) {
@@ -439,12 +473,29 @@ public class Game extends State{
 									j*drawgame.getAsset().getTitleW()-15,
 									i*drawgame.getAsset().getTitleH()-23,null);
 						break;
-					case 3: 
+						
+					case 3: //unbreakable wall
 						g.drawImage(drawgame.getAsset().getBox(),
 						j*drawgame.getAsset().getTitleW()-15,
 						i*drawgame.getAsset().getTitleH()-23,null);
 						break;
+					case 4: 
+						g.drawImage(drawgame.getAsset().getItemls()[0],
+						j*drawgame.getAsset().getTitleW(),
+						i*drawgame.getAsset().getTitleH()-23,null);
+						break;
+					case 5: 
+						g.drawImage(drawgame.getAsset().getItemls()[1],
+						j*drawgame.getAsset().getTitleW(),
+						i*drawgame.getAsset().getTitleH()-23,null);
+						break;
+					case 6: 
+						g.drawImage(drawgame.getAsset().getItemls()[2],
+						j*drawgame.getAsset().getTitleW(),
+						i*drawgame.getAsset().getTitleH()-23,null);
+						break;
 					}
+					
 				}
 			}
 			 drawUp(p1,g);

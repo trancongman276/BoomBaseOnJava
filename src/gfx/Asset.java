@@ -7,10 +7,11 @@ import javax.imageio.ImageIO;
 
 public class Asset {
 	ImageLoader img;
+	private final int numberOfItems = 3;
 	private BufferedImage boom, bush, wall, grass, lose,
 	box,moveBox, floor, sheetp2,sheetp1, shadows, dead,watersheet,mainmenu,hdsd;
 	private BufferedImage[][] player1,player2,water;
-	private BufferedImage[] intro;
+	private BufferedImage[] intro,itemls;
 	private int titleW,titleH;
 	public void init() {
 		img = new ImageLoader();
@@ -35,6 +36,10 @@ public class Asset {
 		for(int i=1;i<=241;i++) {
 			intro[i-1]=img.LoadImage("/intro/intro ("+i+").jpg");
 		}
+		itemls = new BufferedImage[numberOfItems];
+		itemls[0]=img.LoadImage("/objects/item_bom.png");
+		itemls[1]=img.LoadImage("/objects/item_shoe.png");
+		itemls[2]=img.LoadImage("/objects/item_water.png");
 		dataSheet();
 	}
 
@@ -57,6 +62,13 @@ public class Asset {
 						watersheet.getWidth()/2, watersheet.getHeight()/2);
 			}
 		}
+	}
+	public int getNumberOfItems() {
+		return numberOfItems;
+	}
+
+	public BufferedImage[] getItemls() {
+		return itemls;
 	}
 	
 	public BufferedImage[] getIntro() {
